@@ -1,0 +1,47 @@
+gitignore_content = """# Python
+__pycache__/
+*.py[cod]
+*.log
+
+# Virtual environments
+.venv/
+.venv_*/
+venv/
+env/
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Original input videos
+dataset/input_videos/
+
+# Unused and backup models
+models/last_hardhat_200_epochs.pt
+models/yolo11n.pt
+notebooks/yolo11n.pt
+
+# Notebook backups and original notebook
+notebooks/PPE_Detection_Development_backup.ipynb
+notebooks/PPE_Detection_Development.ipynb
+
+# Temporary benchmark video
+outputs/benchmark_video3_200frames.mp4
+
+# Large output video (share separately)
+outputs/video_3_safety_output.mp4
+
+# Editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
+"""
+
+gitignore_path = PROJECT_ROOT / ".gitignore"
+gitignore_path.write_text(gitignore_content, encoding="utf-8")
+
+print(".gitignore created:", gitignore_path.exists())
+print(gitignore_path.read_text())
+
+# Old working notebook and benchmark output
+notebooks/PPE_Detection_Development_clean_old.ipynb
+outputs/benchmark_video3_200frames.mp4
