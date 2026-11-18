@@ -154,18 +154,20 @@ Processed videos are saved in the `outputs` directory.
 
 ## 11. Performance Benchmark
 
-The complete pipeline was benchmarked on 200 frames from Video 3.
+The complete pipeline was benchmarked three times on the first 200 frames of Video 3.
 
-| Parameter | Result |
-|---|---:|
-| Frames processed | 200 |
-| Processing time | 12.17 seconds |
-| Source video FPS | 10 |
-| Complete pipeline FPS | 16.44 |
+The benchmark included detection, ByteTrack tracking, helmet-to-person association, ROI checking, visualization, and video writing. Processing was performed on the CPU with an image size of 640.
 
-The benchmark included detection, tracking, helmet association, ROI checking, visualization, and video writing.
+| Run | Frames processed | Processing time | Pipeline FPS |
+|---|---:|---:|---:|
+| 1 | 200 | 12.17 seconds | 16.44 |
+| 2 | 200 | 20.92 seconds | 9.56 |
+| 3 | 200 | 13.23 seconds | 15.12 |
+| **Average per run** | **200** | **15.44 seconds** | **13.71** |
 
-The test was performed using CPU processing with image size 640. This is a sample benchmark, not a guarantee of performance under all deployment conditions.
+Across all three runs, 600 frames were processed in 46.32 seconds, giving an aggregate throughput of **12.95 FPS**. The 13.71 FPS figure is the arithmetic mean of the three individual run FPS values; aggregate throughput is calculated from total frames divided by total elapsed time.
+
+The source video FPS was 10. These are sample measurements on the development machine, not a guarantee of performance under all deployment conditions. Results can vary with CPU load and video encoding/writing overhead.
 
 ## 12. Project Structure
 
